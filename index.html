@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <style>
+      .conteiner {
+        display: flex;
+        justify-content: center;
+        width: auto;
+        height: 500px;
+      }
+
+      .btn_conteiner {
+        display: flex;
+        justify-content: center;
+        width: auto;
+        height: auto;
+        margin: 30px;
+      }
+    </style>
+    <div class="conteiner" id="image_container">
+      <img src="./img/cat1.jpg" alt="cat1" style="display: block" />
+      <img src="./img/cat2.jpg" alt="cat2" style="display: none" />
+      <img src="./img/cat3.jpg" alt="cat3" style="display: none" />
+    </div>
+    <div class="btn_conteiner" id="btn_container">
+      <button class="btn_conteiner" id="btnBack">Back</button>
+      <button class="btn_conteiner" id="btnNext">Next</button>
+    </div>
+
+    <script>
+      const imgsEl = image_container.querySelectorAll("img");
+      console.log(imgsEl);
+      let i = 0
+
+      btnNext.onclick = function () {
+        imgsEl[i].style.display = "none";
+        i = i + 1;
+        if (i > imgsEl.length-1) {
+          i = 0;
+        }
+        imgsEl[i].style.display = "block";
+      };
+
+      btnBack.onclick = function () {
+        imgsEl[i].style.display = "none";
+        i = i - 1;
+        if (i < 0) {
+          i = imgsEl.length - 1;
+        }
+        imgsEl[i].style.display = "block";
+      };
+    </script>
+  </body>
+</html>
